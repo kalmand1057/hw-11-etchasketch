@@ -1,5 +1,5 @@
 //LOAD DATA
-var db = require("../Develop/db");
+var db = require("../Develop/db/db");
 
 //ROUTING
 module.exports = function(app) {
