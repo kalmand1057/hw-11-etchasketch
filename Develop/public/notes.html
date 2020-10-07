@@ -39,4 +39,34 @@
   <script src="/assets/js/index.js"></script>
 </body>
 
+<script type="text/javascript">
+
+  $(".new-note").on("click", function(event) {
+    event.preventDefault();
+
+    //grabbing elements
+    var newNote = {
+      noteTitle: $(".note-title").val().trim(),
+      noteTitle: $(".note-textarea").val().trim(),
+    };
+
+    console.log(newNote);
+
+    //URL, object to send, and callback function
+    $.post("/api/notes", newNote,
+    function(data) {
+      if(data) {
+        alert("Your note has been saved");
+      } else {
+        alert("Sorry, the note did not save.");
+      }
+
+      //clear form
+    $(".note-title").val("");
+    $(".note-textarea").val("");
+    
+    });
+  });
+</script>
+
 </html>
