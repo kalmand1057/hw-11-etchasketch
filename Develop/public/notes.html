@@ -67,6 +67,26 @@
     
     });
   });
+
+  function runNoteQuery() {
+    $.ajax({ url: "/api/notes", method: "GET" })
+    .then(function(notesData) {
+      console.log(notesData);
+
+      for (var i = 0; i < notesData.length; i++) {
+        var noteList = $(".save-note");
+        var listItem = $("<li class= 'list-group-item'>");
+
+        listItem.append(
+          $("<h2>").text(notesData[i].title),
+          $("<p>").text(notesData[i].textarea)
+        );
+
+        noteList.append(listItem);
+      }
+    });
+  }
+
 </script>
 
 </html>
